@@ -16,8 +16,8 @@ if (!process.env.NODE_ENV) {
   app.use(logger("dev"));
 }
 app.use(helmet());
-app.use(cors())
 app.use(bodyParser.json());
+app.use(cors())
 app.use("/api/v1/", routes);
 
 app.use((req, res, next) => {
@@ -29,7 +29,7 @@ app.use((req, res, next) => {
 app.use((err, req, res, next) => {
   console.error(`Error ${err}`);
   res.status(err.status || 500);
-  res.send({ error: err.message, status: err.status });
+  res.json({ error: err.message, status: err.status });
 });
 
 app.listen(port, () => {
