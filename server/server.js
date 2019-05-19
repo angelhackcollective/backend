@@ -20,12 +20,13 @@ app.use(bodyParser.json());
 app.use("/api/v1/", routes);
 
 app.use((req, res, next) => {
-  let err = new Error("File Not Found");
+  let err = new Error("Not Found.");
   err.status = 404;
   next(err);
 });
 
 app.use((err, req, res, next) => {
+  console.error(`Error ${err}`);
   res.status(err.status || 500);
   res.send({ error: err.message, status: err.status });
 });

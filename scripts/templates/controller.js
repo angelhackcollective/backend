@@ -1,7 +1,22 @@
-exports.get = (req, res) => { }
+async function get (req, res) {
+    
+}
 
-exports.put = (req, res) => { }
+async function update (req, res) {
 
-exports.deleteName = (req, res) => { }
+}
 
-exports.post = (req, res) => { }
+async function destroy (req, res) {
+
+}
+
+async function create (req, res) {
+
+}
+
+module.exports = {
+    get,
+    update,
+    destroy,
+    create
+};
