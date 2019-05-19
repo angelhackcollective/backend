@@ -8,14 +8,15 @@ const routes = require("./routes");
 const port = process.env.PORT || 8080;
 const helmet = require("helmet");
 const logger = require("morgan");
+const cors = require("cors");
 
 
 
 if (!process.env.NODE_ENV) {
   app.use(logger("dev"));
 }
-
 app.use(helmet());
+app.use(cors())
 app.use(bodyParser.json());
 app.use("/api/v1/", routes);
 
